@@ -7,21 +7,28 @@
     $nama_partner = "Zahira Shofa";
     echo "<p>Dibuat oleh: $nama_anda dan $nama_partner</p>";
 
-    $jam_sekarang = date("03:30:59");
+    $jam_sekarang = date("24:40:00");
     echo "<p><strong>Jam Sekarang:</strong> $jam_sekarang</p>";
 
     $pecah_jam = explode(":", $jam_sekarang);
     $jam = (int)$pecah_jam[0];
 
-    if ($jam >= 25) {
-    echo "<p style='color: red; font-weight: bold;'>⚠️ ANDI TIDAK DARI DUNIA LAIN ‼️</p>";
+    $jam_tidak_valid = false;
+    if ($jam == 24) {
+    $jam_sekarang = "00:00:00";
+        } elseif ($jam > 24) {
+    $jam_tidak_valid = true;
+    }
+  
+  if ($jam >= 25) {
+    echo "<p>⚠️ ANDI TIDAK DARI DUNIA LAIN ‼️</p>";
 }
 
-    $adaTugas = true;
-    $bercengkrama_dimajukan = false; 
+    $adaTugas = false;
+    $bercengkrama_dimajukan = true; 
 
     $jadwal_keseharian = [
-        "04:00:00 - 06:10:00" => "Sholat Subuh dan Mengaji",
+        "04:00:01 - 06:10:00" => "Sholat Subuh dan Mengaji",
         "06:10:01 - 06:59:59" => "Persiapan ke Sekolah / Waktu Luang",
         "07:00:00 - 15:30:00" => "Masih di Sekolah",
         "15:30:01 - 15:45:00" => "Perjalanan pulang dari sekolah ke rumah",
@@ -77,7 +84,13 @@
     }
 }
 
-    echo "<p><strong>Sedang Berlangsung:</strong> <span class='highlight'>$kegiatan_sekarang</span></p>";
-    echo "<p><strong>Selanjutnya:</strong> $kegiatan_selanjutnya</p>";
-    ?>
+if ($jam_tidak_valid) {
+    $kegiatan_sekarang = "Tidak ada kegiatan saat ini";
+    $kegiatan_selanjutnya = "Tidak ada kegiatan berikutnya";
+}
 
+echo "<p><strong>Sedang Berlangsung:</strong> <span class='highlight'>$kegiatan_sekarang</span></p>";
+echo "<p><strong>Selanjutnya:</strong> $kegiatan_selanjutnya</p>";
+
+   
+?>
