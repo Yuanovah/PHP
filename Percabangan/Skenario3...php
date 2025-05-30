@@ -7,13 +7,13 @@
     $nama_partner = "Zahira Shofa";
     echo "<p>Dibuat oleh: $nama_anda dan $nama_partner</p>";
 
-   $jam_sekarang = date("03:30:59");
-   echo "<p><strong>Jam Sekarang:</strong> $jam_sekarang</p>";
+    $jam_sekarang = date("03:30:59");
+    echo "<p><strong>Jam Sekarang:</strong> $jam_sekarang</p>";
 
-  $pecah_jam = explode(":", $jam_sekarang);
-  $jam = (int)$pecah_jam[0];
-  
-  if ($jam >= 25) {
+    $pecah_jam = explode(":", $jam_sekarang);
+    $jam = (int)$pecah_jam[0];
+
+    if ($jam >= 25) {
     echo "<p style='color: red; font-weight: bold;'>⚠️ ANDI TIDAK DARI DUNIA LAIN ‼️</p>";
 }
 
